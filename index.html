@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="js/code-mirror/codemirror.css">
+<link rel="stylesheet" href="css/twine-theme.css">
+
+<div class="menu-bar">
+  <button id="new">+ New</button>
+  <button id="delete" style="opacity:0.5">Delete</button>
+  <label for="zoom">Zoom:</label>
+  <input type="range" id="zoom" class="range-slider__input">
+  <button id="open">Open File</button>
+  <button id="save">Download File</button>
+  <button id="nn-theme">netnet theme</button>
+</div>
+
+<div id="graph-wrapper">
+  <div id="graph-container"></div>
+</div>
+
+
+<div id="editor">
+  <div class="nav">
+    <span class="name" contenteditable="true">Passage Name</span>
+    <span class="close">×</span>
+  </div>
+  <textarea></textarea>
+</div>
+
+
+<script src="js/code-mirror/codemirror.js"></script>
+<script src="js/code-mirror/simple.js"></script>
+<script src="js/harlowe-mode.js"></script>
+
+<script src="js/panzoom.min.js"></script>
+<script src="js/extwee.web.min.js"></script>
+<script src="js/quilt-graph.js"></script>
+
+<script src="js/main.js"></script>

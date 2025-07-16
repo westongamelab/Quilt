@@ -1,0 +1,164 @@
+
+  * { box-sizing: border-box; }
+
+  :root {
+    --gray: hsl(0, 0%, 60%);
+    --off-white: #fafafa;
+    --light-gray: hsl(0, 0%, 85%);
+    --lighter-gray: #f0f0f0;
+    --blue: hsl(212, 90%, 60%);
+    --light-blue: hsl(212, 90%, 90%);
+
+    --corner-round: 5px;
+
+    --shadow-small: 0 1px 1px var(--light-gray);
+    --shadow-large: 0 0 1px var(--gray), 0 2px 8px var(--light-gray);
+  }
+
+@font-face {
+  font-family: 'SF Mono Regular';
+  src: url('sf-mono-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+
+  font-family: 'SF Mono Regular', monospace;
+}
+
+.menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: var(--lighter-gray);
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.menu-bar > * {
+  margin: 0px 10px;
+}
+
+#graph-wrapper {
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+#graph-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #e7f1fe;
+}
+
+.quilt-card {
+  position: absolute;
+  z-index: 1;
+
+  width: var(--card-size); /* defined in QuiltGraph */
+  height: var(--card-size); /* defined in QuiltGraph */
+  background: var(--off-white);
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 5px;
+  overflow: hidden;
+
+  font-size: 0.7em;
+
+  cursor: move;
+  user-select: none;
+}
+
+.quilt-card p {
+  color: var(--gray);
+  margin: 0;
+}
+
+.quilt-card.selected {
+  background: var(--light-blue);
+  box-shadow: var(--shadow-small),inset 0 0 0 1px var(--blue);
+}
+
+.quilt-card.temp-card {
+  opacity: 0.5;
+  border: 2px dashed var(--gray);
+}
+
+.quilt-card.temp-card::after {
+  content: "double-click to edit it";
+  position: absolute;
+  left: 11px;
+  top: 34px;
+  font-style: italic;
+}
+
+/* PASSAGE EDITOR */
+
+#editor {
+  display: none;
+
+  position: fixed;
+  top: 66px;
+  right: 32px;
+  width: 652px;
+  height: 365px;
+
+  padding: 10px;
+  background: var(--lighter-gray);
+  box-shadow: var(--shadow-large);
+  border-radius: var(--corner-round);
+
+  opacity: 0.5;
+}
+
+#editor:hover {
+  opacity: 1
+}
+
+#editor > .nav {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#editor > .nav > .close {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* tweak styles for your custom tokens */
+.cm-hr { color: #999 !important; }
+.cm-header { font-weight: bold; }
+.cm-list { color: #085 !important; }
+.cm-quote { color: #6a737d !important; font-style: italic; }
+.cm-comment { color: #999 !important; font-style: italic; }
+.cm-error { background: #fee !important; color: #d00 !important; }
+.cm-meta { color: #708 !important; }
+.cm-strong { font-weight: bold; }
+.cm-em { font-style: italic; }
+.cm-underline { text-decoration: none; }
+.cm-strikethrough { text-decoration: line-through; }
+.cm-atom { color: #05a !important; }
+.cm-keyword { color: #708 !important; }
+.cm-bracket { color: #a22 !important; }
+.cm-link { color: #0645ad !important; text-decoration: none; }
+.cm-variable-2 { color: #164 !important; }
+.cm-number { color: #164 !important; }
+.cm-string { color: #a11 !important; }
+.cm-operator { color: #000 !important; }

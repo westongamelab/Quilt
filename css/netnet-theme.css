@@ -1,0 +1,296 @@
+:root {
+  --fg-color: #c76ebc;
+  --bg-color: #1c1c36;
+  --tx-color: #c3c3db;
+
+  --netizen-text: #e7e5c9;
+  --netizen-background: #1c1c3600;
+  --netizen-meta: #c3c3db;
+  --netizen-tag: #c76ebc;
+  --netizen-tag-bracket: #c3c3db;
+  --netizen-attribute: #81c994;
+  --netizen-qualifier: #81c994;
+  --netizen-comment: #515199;
+  --netizen-variable: #d5805e;
+  --netizen-variable-2: #82ccd7;
+  --netizen-variable-3: #c3c3db;
+  --netizen-variable-callee: #82ccd7;
+  --netizen-def: #c3c3db;
+  --netizen-builtin: #81c994;
+  --netizen-property: #c3c3db;
+  --netizen-keyword: #81c994;
+  --netizen-string: #82ccd7;
+  --netizen-string-2: #82ccd7;
+  --netizen-number: #E6DB6F;
+  --netizen-atom: #c3c3db;
+  --netizen-operator: #c76ebc;
+  --netizen-line-numbers: #9885a6;
+  --netizen-active-line-bg: #c3c3db;
+  --netizen-selected: #c8c8fa19;
+  --netizen-match-color: #e7e5c9;
+  --netizen-match-border: #515199;
+  --netizen-hint-color: #1c1c36;
+  --netizen-hint-bg: #dacb8e;
+  --netizen-hint-shadow: #515199BF;
+
+  --corner-round: 5px;
+}
+
+.menu-bar {
+  background: var(--bg-color);
+  color: var(--tx-color);
+  padding: 30px 1em;
+}
+
+#graph-wrapper {
+  top: 60px;
+}
+
+#graph-container {
+  background: linear-gradient(0deg, #c76ebca8, #515199a8);
+  border-top: 4px solid var(--fg-color);
+}
+
+/* -------------------------------------------------------------- QUILT CARDS */
+
+.quilt-card {
+  background: var(--fg-color);
+  color: var(--netizen-text);
+}
+
+.quilt-card p {
+  color: var(--bg-color);
+}
+
+.quilt-card.selected {
+  color: var(--bg-color);
+  background: var(--netizen-attribute);
+}
+
+.quilt-card.selected p {
+  color: var(--bg-color);
+}
+
+/* ----------------------------------------------------------- PASSAGE EDITOR */
+
+#editor {
+  top: 76px;
+  right: 32px;
+  width: 652px;
+  height: 353px;
+
+  padding: 6px;
+  background: var(--netizen-meta);
+  color: var(--bg-color);
+  box-shadow: rgba(0, 0, 0, 0.15) 8px 12px 6px;
+}
+
+#editor > .nav {
+  padding: 0px 5px 10px 3px;
+  align-items: center;
+}
+
+/* ------------------------------------------------------------- PILL BUTTONS */
+/* primary button */
+
+.pill-btn {
+  position: relative;
+
+  padding: 5px 15px;
+  border: none;
+  border-radius: 25px;
+  margin-right: 0 5px 0 0;
+
+  color: var(--bg-color);
+  background: var(--fg-color);
+
+  font-size: 15px;
+  line-height: 1.2em;
+  font-weight: 700;
+  text-shadow: none;
+  white-space: nowrap;
+
+  box-shadow: 2px 2px 6px var(--netizen-hint-shadow);
+  cursor: pointer;
+
+  transform: translate(0, 0);
+  transition: box-shadow var(--element-transition-time) ease, transform var(--element-transition-time) ease;
+}
+
+.pill-btn:after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+
+  opacity: 0;
+
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+
+  border-radius: 25px;
+  border: 1px solid var(--fg-color);
+}
+
+.pill-btn:hover {
+  box-shadow: 1px 1px 3px var(--netizen-hint-shadow);
+
+  transform: translate(1px, 1px);
+}
+
+.pill-btn:focus {
+  outline: none;
+  box-shadow: 1px 1px 3px var(--netizen-hint-shadow);
+}
+
+.pill-btn:focus:after {
+  opacity: 1;
+}
+
+
+/* secondary button */
+
+.pill-btn--secondary {
+  display: inline-block;
+
+  padding: 5px 10px;
+  border: 1px solid var(--netizen-meta);
+
+  color: var(--netizen-meta);
+  background-color: var(--bg-color);
+
+  box-shadow: none;
+
+  transition: background-color var(--element-transition-time) var(--sarah-ease), color var(--element-transition-time) var(--sarah-ease);
+}
+
+.pill-btn--secondary:after {
+  border: 1px solid var(--netizen-meta);
+}
+
+.pill-btn--secondary:hover {
+  color: var(--bg-color);
+  background-color: var(--netizen-match-color);
+
+  box-shadow: none;
+
+  transform: none;
+}
+
+.pill-btn--secondary:focus {
+  outline:none;
+  outline-offset: none;
+  box-shadow: none;
+}
+
+.pill-btn--secondary:focus:after {
+  opacity: 1;
+}
+
+/* ------------------------------------------------------------- RANGE SLIDER */
+
+/* ─── Block ─── */
+.range-slider {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+/* ─── Element: the <input> ─── */
+.range-slider__input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #ddd;                  /* fallback track color */
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  /* use --fg-color for everything below 👇 */
+}
+
+/* ─── Thumb (all engines) ─── */
+.range-slider__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--fg-color);
+  border: none;
+  margin-top: -6px;                  /* center on 4px track */
+  cursor: pointer;
+}
+.range-slider__input::-moz-range-thumb {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--fg-color);
+  border: none;
+  cursor: pointer;
+}
+.range-slider__input::-ms-thumb {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--fg-color);
+  border: none;
+  cursor: pointer;
+}
+
+/* ─── Firefox: real two-part track ─── */
+.range-slider__input::-moz-range-track {
+  background: #ddd;
+  height: 4px;
+  border-radius: 2px;
+}
+.range-slider__input::-moz-range-progress {
+  background: var(--fg-color);
+  height: 4px;
+  border-radius: 2px;
+}
+
+/* ─── IE/Edge: two-part track ─── */
+.range-slider__input::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  color: transparent;                /* hide ticks */
+  height: 4px;
+}
+.range-slider__input::-ms-fill-lower {
+  background: var(--fg-color);
+  border-radius: 2px;
+}
+.range-slider__input::-ms-fill-upper {
+  background: #ddd;
+  border-radius: 2px;
+}
+
+/* -------------------------------------------------------------- CODE MIRROR */
+
+.CodeMirror {
+  background: var(--bg-color) !important;
+  color: var(--netizen-text) !important;
+  padding: 10px;
+}
+
+div.CodeMirror-cursor {
+  width: 1px;
+  border-left: 2px solid var(--netizen-text) !important;;
+}
+
+.cm-hr { color: var(--netizen-meta) !important; }
+.cm-header { font-weight: bold; }
+.cm-list { color: var(--netizen-operator) !important; }
+.cm-quote { color: #b7bfc9 !important; font-style: italic; }
+.cm-comment { color: var(--netizen-meta) !important; font-style: italic; }
+.cm-error { background: #ff000014 !important; color: #d00 !important; }
+.cm-meta { color: var(--netizen-meta) !important; }
+.cm-strong { font-weight: bold; }
+.cm-em { font-style: italic; }
+.cm-underline { text-decoration: none; }
+.cm-strikethrough { text-decoration: line-through; }
+.cm-atom { color: var(--netizen-atom) !important; }
+.cm-keyword { color: var(--netizen-keyword) !important; }
+.cm-bracket{ color: var(--netizen-tag-bracket) !important; }
+.cm-tag { color: var(--netizen-tag) !important; }
+.cm-link { color: var(--netizen-string) !important; text-decoration: none; }
+.cm-variable-2 { color: var(--netizen-variable-2) !important; }
+.cm-number { color: var(--netizen-number) !important; }
+.cm-string { color: var(--netizen-string) !important; }
+.cm-operator { color: var(--netizen-attribute) !important; }
